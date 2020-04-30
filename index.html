@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App.js</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+</head>
+<style>
+    *{
+        margin: 0;
+    }
+    .form{
+        margin-top: 5vh;
+    }
+    .form label{
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    .box{
+        max-width: 1140px;
+        margin: 0 auto;
+        margin-top: 36px;
+        display: flex;
+        justify-content: center;
+    }
+    div{
+        text-align: center;
+        font-size: 1.2rem;
+        font-family: sans-serif;
+
+    }
+    input{
+        position: relative;
+        padding: .5rem;
+        padding-left: 3rem;
+    }
+
+    a{
+        font-size: 1.2rem;
+        font-family: sans-serif;
+        padding: 5px;
+        border: 2px solid black;
+        cursor: pointer;
+        margin-left: 5px;
+
+    }
+    .card{
+        width: 30%;
+        margin: 1rem;
+    }
+    .card p{
+        padding: 1rem 0;
+        border-bottom: 2px solid black;
+    }
+    #in{
+        text-align: center;
+        background-color: greenyellow;
+        border-radius: 5px;
+}
+    #in p::after{
+        font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f2ed";
+        font-size: 1rem;
+        position: absolute;
+        right: 1rem;
+        color: coral;
+        cursor: pointer;
+    }
+    #in p{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black;
+        padding: .5rem 3rem .5rem 1rem;
+    }
+
+    #in p span{
+        width: 40px;
+        height: 100%;
+        position: absolute;
+        background: transparent;
+        right: 0;
+        z-index: 2;
+        cursor: pointer;
+    }
+
+
+    #out{
+        background-color: coral;
+        border-radius: 5px;
+    }
+
+    p{
+        color: green;
+        font-size: 1.3rem;
+        font-family: sans-serif;
+    }
+
+    #out p{
+        background-color: coral;
+        color: white;
+        position: relative;
+        padding: .5rem 3rem .5rem 1rem;
+        
+    }
+
+    #out p::after{
+        font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f2ea";
+        font-size: 1rem;
+        position: absolute;
+        right: 1rem;
+        color: white;
+        cursor: pointer;
+    
+    }
+
+    #out p span{
+        width: 40px;
+        height: 100%;
+        position: absolute;
+        background:transparent;
+        right: 0;
+        z-index: 2;
+        cursor: pointer;
+        top: 0;
+    }
+
+    .box-eliminadas,.box-lista{
+        display: flex;
+        justify-content: space-between;
+        padding: .5rem 0;
+        align-items: center;
+    }
+
+    .box-eliminadas a{
+        text-decoration: none;
+        background-color: red;
+        color: white;
+        padding: 0.5rem;
+    }
+
+    .box-lista a{
+        text-decoration: none;
+        background-color: green;
+        color: white;
+        padding: 0.5rem;
+    }
+    .box-lista h2,.box-eliminadas h2{
+        position: relative;
+        padding-left: 2.5rem;
+        color: darkgrey;
+    }
+    .box-lista h2 span{
+        left: 0;
+        position: absolute;
+    }
+    .box-eliminadas h2 span{
+        position: absolute;
+        left: 1px;
+    }
+
+    #refresh{
+        border-color: slategrey;
+        background-color: slategrey;
+        color: white;
+    }
+
+    .box-input{
+        margin: 0 auto;
+        width: 30%;
+        position: relative;
+    }
+    .ico{
+        position: absolute;
+        left: 100px;
+        top: 8px;
+    }
+
+    .lista-guardada{
+        position: absolute;
+        left: 0;
+        width: 20%;
+    }
+
+    .lista-guardada button{
+        width: 100%;
+        width: 100%;
+        height: 3rem;
+        border: none;
+        background: green;
+        color: white;
+        font-size: 1.2rem;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: .2rem;
+        font-weight: bold;
+    }
+
+    .panel a{
+        text-decoration: none;
+        border: none;
+        background: darkseagreen;
+        color: white;
+        display: block;
+        margin: 0;
+        font-size: 1.5rem;
+        letter-spacing: .2rem;
+        text-transform: uppercase;
+        background-color: lightseagreen;
+}
+
+#list .cta-lista{
+    width: 87%;
+    height: 34px;
+    position: absolute;
+    background: #7fffd47a;
+    top: 47px;
+    z-index: 10;
+}
+
+.numero-lista{
+    position: relative;
+}
+
+.numero-lista .fa-times{
+    position: absolute;
+    right: 0px;
+    width: 50px;
+    background: brown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    height: 34px;
+    cursor: pointer;
+    color: white;
+}
+
+.numero-lista .suprimir{
+    width: 50px;
+    height: 38px;
+    background: transparent;
+    position: absolute;
+    right: 0;
+    z-index: 5;
+}
+
+.numero-lista .btn{
+    display: block;
+    padding: 7px;
+    border: 0;
+    border-bottom: 2px solid green;
+    background: goldenrod;
+    margin: 0;
+    color: white;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: .3rem;
+}
+    
+
+
+</style>
+<body>
+<div class="form">
+    <div class="box-input">
+        <label for=""></label>
+        <input type="text" maxlength="25" id="input" placeholder="Añadir más de un item">
+        <span class="ico"><i class="fas fa-keyboard"></i></span>
+    
+        <a id="button">Enviar</a>
+        <a id="refresh">Refresh</a>
+    </div>
+    <div class="lista-guardada">
+        <button>Guardadas</button>
+        <div class="panel"></div>
+            <div id="list"></div>
+        </div>
+    </div>
+</div>
+<div class="box">
+    <div class="card" id="card-list">
+        <div class="box-lista">
+            <h2>Lista <span><i class="fas fa-list"></i></span></h2>
+            <a id="guardar" href="#">Guardar</a>
+        </div>
+        <div id="in">
+            
+        </div>
+    </div>
+    <div class="card">
+        <div class="box-eliminadas">
+            <h2>Completadas <span><i class="fas fa-thumbs-up"></i></span></h2>
+            <a class="suprimir" href="#">Borrar</a>
+        </div>
+        <div id="out">
+        </div>
+    </div>
+</div>
+
+
+
+
+    <script src="assets/js/app.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/brands.min.js"></script> -->
+</body>
+</html>
